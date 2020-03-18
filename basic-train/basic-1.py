@@ -2,7 +2,7 @@
 @Description: code
 @Author: MiCi
 @Date: 2020-03-16 21:31:24
-@LastEditTime: 2020-03-17 21:32:10
+@LastEditTime: 2020-03-18 23:36:29
 @LastEditors: MiCi
 '''
 
@@ -66,7 +66,45 @@ class Basic1(object):
         return
 
     def basic_use2(self):
+        # 按元素进行运算
+        a = np.array([20, 30, 40, 50])
+        b = np.arange(4)
+        print(a)
+        print(b)
+        print(a-b)
+        print(b**2)
+        print(10*np.sin(a))
+        print(a < 35)
 
+        # *号按元素计算，矩阵计算用dot函数
+        a = np.array([[1, 1],
+                      [0, 1]])
+        b = np.array([[2, 0],
+                      [3, 4]])
+        print(a*b)
+        print(np.dot(a, b))
+
+        # 运算不同类型数组，结果数组使用更准确类型
+        a = np.ones(3, dtype='int32')
+        b = np.linspace(0, np.pi, 3)
+        print(b.dtype.name)
+        print((a+b).dtype.name)
+
+        # 数组求和、最大值、最小值
+        a = np.random.random((2, 3))
+        print(a)
+        print(a.sum())
+        print(a.max())
+        print(a.min())
+
+        # 指定axis运算位置
+        a = np.arange(12).reshape(3, 4)
+        print(a)
+        print(a.sum(axis=0))
+        print(a.min(axis=1))
+        print(a.max(axis=1))
+        # 累加
+        print(a.cumsum(axis=1))
         return
 
 
@@ -75,6 +113,6 @@ if __name__ == '__main__':
     print('============================\n')
     example = Basic1()
     # 最基本信息
-    example.basic_use()
+    # example.basic_use()
     # 基本运算
     example.basic_use2()
