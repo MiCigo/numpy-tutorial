@@ -2,7 +2,7 @@
 @Description: code
 @Author: MiCi
 @Date: 2020-03-18 22:40:45
-@LastEditTime: 2020-03-19 23:10:50
+@LastEditTime: 2020-03-20 22:44:31
 @LastEditors: MiCi
 '''
 
@@ -43,10 +43,17 @@ class Basic2(object):
         print(a[-1])
         return
 
+    def basic_use2(self):
+        a = np.floor(10*np.random.random((3, 4)))
+        print(a)
+        return
+
 
 if __name__ == '__main__':
     print('Start Learn Numpy')
     print('============================\n')
     example = Basic2()
     # 通用函数ufunc
-    example.basic_use()
+    # example.basic_use()
+    # 形状操作
+    example.basic_use2()
