@@ -2,7 +2,7 @@
 @Description: code
 @Author: MiCi
 @Date: 2020-03-18 22:40:45
-@LastEditTime: 2020-03-20 22:44:31
+@LastEditTime: 2020-03-21 22:11:38
 @LastEditors: MiCi
 '''
 
@@ -45,6 +45,12 @@ class Basic2(object):
 
     def basic_use2(self):
         a = np.floor(10*np.random.random((3, 4)))
+        print(a)
+        print(a.shape)
+        # 数组形状修改
+        print(a.ravel())
+        a.shape = (6, 2)
+        print(a.transpose())
         print(a)
         return
 
