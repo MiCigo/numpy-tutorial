@@ -2,7 +2,7 @@
 @Description: code
 @Author: MiCi
 @Date: 2020-03-18 22:40:45
-@LastEditTime: 2020-03-21 22:11:38
+@LastEditTime: 2020-03-22 22:38:15
 @LastEditors: MiCi
 '''
 
@@ -50,8 +50,51 @@ class Basic2(object):
         # 数组形状修改
         print(a.ravel())
         a.shape = (6, 2)
-        print(a.transpose())
+        a.transpose()
         print(a)
+        a.resize((2, 6))
+        print(a)
+
+        # 组合数组
+        a = np.floor(10*np.random.random((2, 2)))
+        b = np.floor(10*np.random.random((2, 2)))
+        print(np.vstack((a, b)))
+        print(np.hstack((a, b)))
+        # column_stack以列将一维数组合成二维数组
+        print(np.column_stack((a, b)))
+        # newaxis划分为多行
+        a = np.array([4., 2.])
+        print(a[:, np.newaxis])
+
+        # 分割数组，vsplit沿着纵向轴分割
+        a = np.floor(10*np.random.random((2, 12)))
+        print(a)
+        print(np.hsplit(a, 3))
+        print(np.hsplit(a, (3, 4)))
+
+        # 完全不拷贝，简单赋值不拷贝数组对象及数据
+        a = np.arange(12)
+        b = a
+        print(b is a)
+        b.shape = 3, 4
+        print(a.shape)
+
+        # 浅复制，不同数组对象分享同一个数据，用视图创造一个新的数组对象指向同数据
+        c = a.view()
+        print(c is a)
+        print(c.base is a)
+        c.shape = 3, 4
+        print(a.shape)
+        c[0, 1] = 6666
+        print(a)
+
+        # 深复制，完全复制数组和数据
+        d = a.copy()
+        print(d is a)
+        print(d.base is a)
+        d[0, 1] = 6666
+        print(a)
+
         return
 
 
